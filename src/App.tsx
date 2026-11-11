@@ -6,23 +6,26 @@ import { Registration } from './data/courses'
 
 
 
-export default function App() {
-  const [Registration, setRegistration] = useState([])
+export default function App()
+{
+  const [registrations, setRegistrations] = useState<Registration[]>([])
 
-  function addRegistration()
+  function addRegistration(input: Omit<Registration, 'id'>)
   {
+    const newRegistration: Registration = { ...input, id: crypto.randomUUID() }
+    setRegistrations(prev => [...prev, newRegistration])
 
   }
 
-  function removeRegistration()
+  function removeRegistration(id: string)
   {
-    
+    setRegistrations(prev => prev.filter(registration => registration.id !== id))
   }
 
   return (
     <main className="container">
       <header><span className="eyebrow">React learning lab</span><h1>Course Registration</h1><p>Build a form, validate it, then share registration data across components.</p></header>
-      <div className="layout"><RegistrationForm /><div className="stack"><RegistrationSummary /><RegistrationList /></div></div>
+      <div className="layout"><RegistrationForm onRegister={addRegistration}/><div className="stack"><RegistrationSummary /><RegistrationList /></div></div>
     </main>
   )
 }
