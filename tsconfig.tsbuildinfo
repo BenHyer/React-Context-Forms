@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/components/registrationform.tsx","./src/components/registrationlist.tsx","./src/components/registrationsummary.tsx","./src/data/courses.ts"],"errors":true,"version":"5.8.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/registrationcontext.tsx","./src/components/registrationdashboard.tsx","./src/components/registrationform.tsx","./src/components/registrationlist.tsx","./src/components/registrationsummary.tsx","./src/data/courses.ts"],"errors":true,"version":"5.8.3"}

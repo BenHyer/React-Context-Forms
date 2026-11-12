@@ -52,7 +52,17 @@ Build a Course Registration application. You will first make a form work, then v
 Submit your entire repository and a short reflection explaining:
 
 1. What makes an input controlled?
+It’s controlled when React state holds its value. I pass value={name} and an onChange that updates the state, so React is in charge of what shows up. That’s also why my state starts as "" instead of undefined.
+
 2. Why do we prevent invalid form submissions?
+stops the page from refreshing so React can handle the submit itself. Validation stops junk like empty names or bad emails from getting into the list, and it tells the user what to fix. You’d still want server-side checks in a real app though.
+
 3. What problem did Context solve in this application?
+The thing with props. RegistrationDashboard was passing registrations and onRemove down without even using them. Now the form, list and summary just call useRegistrations() and grab what they need. The data still disappears when you refresh though.
+
 4. When would props be preferable to Context?
+If the data’s only going down a level or two, props are better. It’s easier to see where stuff comes from, and the components are easier to reuse and test. Context makes more sense when a bunch of components all over the app need the same data.
+
 5. What did you add independently, and how did you test it?
+I added a year field (Freshman to Senior) that shows “Please select your year.” if you don’t pick one. I also added a dropdown to filter the list by course, plus a success message that shows the name, email, course and year.
+
